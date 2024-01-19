@@ -1,3 +1,3 @@
 def islower(c):
-    return ord(c) >= 97 and ord(c) <= 122
-# if the condition is not met, return is none = false
+    return True if ord(c) >= 97 and ord(c) <= 122 else False
+# if the 'c' is between a and z in lower
