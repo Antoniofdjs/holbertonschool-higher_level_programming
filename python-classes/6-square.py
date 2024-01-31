@@ -59,7 +59,7 @@ class Square:
 
 # Print obect
     def my_print(self):
-        if self.__size is 0:
+        if self.__size == 0:
             print()
         else:
             for _ in range(0, self.__size):
