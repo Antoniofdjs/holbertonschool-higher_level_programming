@@ -19,5 +19,8 @@ Traceback (most recent call last):
 TypeError: a must be an integer or b must be an add_integer
 >>> add_integer("School", 4)
 Traceback (most recent call last):
-    ...
+...
 TypeError: a must be an integer or b must be an integer
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: a must be an integer or b msut be an integer
