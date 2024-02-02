@@ -1,5 +1,16 @@
 #!/usr/bin/python3
+"""
+Module Name: 3-say_my_name
+Description: prints name and last name
+Author: Lusanco,Antonio, Louis Date: Feb 01 2024
+"""
+
+
 def say_my_name(first_name, last_name=""):
+    """Description: prints first name and last name
+    - first_name (str): The name string
+    - last_name (str): The last name, default is '' """
+    
     error_a = "first_name must be a string"
     error_b = "last_name must be a string"
 
