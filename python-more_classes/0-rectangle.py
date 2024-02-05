@@ -1,3 +1,7 @@
 #!/usr/bin/python3
-class rectangle:
-  pass
+"""my class"""
+
+
+class Rectangle:
+    """empty rectangle"""
+    pass
