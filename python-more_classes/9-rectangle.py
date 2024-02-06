@@ -27,7 +27,6 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
-        """Class method to create square with rect class"""
         return cls(size, size)
 
     @staticmethod
