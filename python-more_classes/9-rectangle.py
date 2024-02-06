@@ -25,10 +25,6 @@ class Rectangle:
 
         Rectangle.number_of_instances += 1
 
-    @classmethod
-    def square(cls, size=0):
-        return cls(size, size)
-
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """compares areas of rectangles"""
@@ -96,3 +92,7 @@ class Rectangle:
         """prints bye message when del"""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+
+    @classmethod
+    def square(cls, size=0):
+        return cls(size, size)
