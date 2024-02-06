@@ -28,9 +28,7 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """Class method to create square with rect class"""
-        width = size
-        height = size
-        return Rectangle(width, height)
+        return cls(size, size)
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
