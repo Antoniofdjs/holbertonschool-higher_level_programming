@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Returns true or false if obj is a_class, inheritance considered"""
+"""Returns true or false if obj is a_class"""
 
 
 def is_same_class(obj, a_class):
