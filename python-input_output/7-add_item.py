@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""load lists into a json file"""
+"""get json string from file"""
 
 
 import sys
@@ -9,3 +9,4 @@ load_json = __import__('6-load_from_json_file').load_from_json_file
 
 args = sys.argv[1:]
 save_json(args, "add_item.json")
+obj = load_json("add_item.json")
