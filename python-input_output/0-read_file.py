@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ This function reads a file 
-and writes
-to stdout
+and writesto stdout
 """
 
 
