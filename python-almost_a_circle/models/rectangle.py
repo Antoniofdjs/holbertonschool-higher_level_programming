@@ -41,6 +41,14 @@ class Rectangle(Base):
         for row in range(self.__height):
             print(str('#'*self.__width))
 
+    def __str__(self):
+        """str representation """
+        my_str = "[Rectangle] ({}) ".format(self.id)
+        my_str += "{}/{} ".format(self.__x, self.__y)
+        my_str += "- {}/{}".format(self.__width, self.__height)
+        # [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        return my_str
+
     @property
     def width(self):
         """Getter for width attribute."""
