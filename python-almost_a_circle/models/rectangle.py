@@ -28,7 +28,7 @@ class Rectangle(Base):
                 raise ValueError("{} must be > 0".format(name))
         else:
             if value < 0:
-                raise ValueError("{} must be >= 0")
+                raise ValueError("{} must be >= 0".format(name))
 
     @property
     def width(self):
