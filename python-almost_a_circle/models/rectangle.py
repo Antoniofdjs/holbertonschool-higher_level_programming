@@ -21,7 +21,7 @@ class Rectangle(Base):
         self.__y = y
 
     def int_validator(self, name, value):
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("{} must be an integer".format(name))
         if name == "width" or name == "height":
             if value <= 0:
