@@ -32,6 +32,10 @@ class Rectangle(Base):
             if (flag == "x" or flag == "y") and value < 0:
                 raise ValueError("{} must be >= 0".format(flag))
 
+    def area(self):
+        """Returns area of rectangle"""
+        return self.__height * self.__width
+
     @property
     def width(self):
         """Getter for width attribute."""
