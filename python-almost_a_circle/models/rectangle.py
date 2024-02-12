@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 
 """
-Module: rectangle
-Descrip: Rectangle class
-Authors: Lusanco
+Rectangle
 """
 
 from models.base import Base
