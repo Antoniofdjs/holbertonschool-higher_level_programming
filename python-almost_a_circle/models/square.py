@@ -21,6 +21,30 @@ class Square(Rectangle):
         # "[Rectangle] (<id>) <x>/<y> - <width>"
         return my_str
 
+    def update(self, *args, **kwargs):
+        """ Update all values in order """
+        atributes = ["id", "width", "x", "y"]
+        if args:
+            for atribute, value in zip(atributes, args):
+                self.validator(atribute, value)
+                if atribute == "width":
+                    setattr(self, "height", value)
+                setattr(self, atribute, value)
+
+            # kwargs only below
+            else:
+                for atribute, value in kwargs.items():
+
+                    # size was detected, we use it for width and height
+                    if atribute == "size":
+                        self.validator("width", value)
+                        setattr(self, "width", value)
+                        setattr(self, "height", value)
+                    # continue normally
+                    else:
+                        self.validator(self, atribute, value)
+                        setattr(self, atribute, value)
+
     @property
     def size(self):
         return self.width
