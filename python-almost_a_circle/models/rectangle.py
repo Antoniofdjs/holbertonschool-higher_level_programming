@@ -38,7 +38,10 @@ class Rectangle(Base):
 
     def display(self):
         """ Prints rectangle shape with # """
+        for _ in range(self.__y):
+            print()
         for row in range(self.__height):
+            print(str(' '*self.__x), end='')
             print(str('#'*self.__width))
 
     def __str__(self):
