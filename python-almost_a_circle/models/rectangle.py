@@ -58,11 +58,13 @@ class Rectangle(Base):
 
     def __str__(self):
         """str representation """
-        my_str = "[Rectangle] ({}) ".format(self.id)
-        my_str += "{}/{} ".format(self.__x, self.__y)
-        my_str += "- {}/{}".format(self.__width, self.__height)
+        id = self.id
+        x = self.__x
+        y = self.__y
+        w = self.__width
+        h = self.__height
         # "[Rectangle] (<id>) <x>/<y> - <width>/<height>"
-        return my_str
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(id, x, y, w, h)
 
     @property
     def width(self):
