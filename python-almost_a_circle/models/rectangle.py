@@ -44,6 +44,13 @@ class Rectangle(Base):
             print(str(' '*self.__x), end='')
             print(str('#'*self.__width))
 
+    def update(self, *args):
+        """ Update all values in order """
+        atributes = ["id", "width", "height", "x", "y"]
+        for atribute, value in zip(atributes, args):
+            self.validator(atribute, value)
+            setattr(self, atribute, value)
+
     def __str__(self):
         """str representation """
         my_str = "[Rectangle] ({}) ".format(self.id)
