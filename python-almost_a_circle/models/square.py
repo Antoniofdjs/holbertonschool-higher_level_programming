@@ -20,3 +20,13 @@ class Square(Rectangle):
         my_str += "- {}".format(self.width)
         # "[Rectangle] (<id>) <x>/<y> - <width>"
         return my_str
+
+    @property
+    def size(self):
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        self.validator("width", value)
+        self.width = value
+        self.height = value
