@@ -21,6 +21,16 @@ class Square(Rectangle):
         # "[Rectangle] (<id>) <x>/<y> - <width>"
         return my_str
 
+    def to_dictionary(self):
+        """returs dictionary of square"""
+        my_dictionary = {
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
+        return my_dictionary
+
     def update(self, *args, **kwargs):
         """ Update all values in order """
         atributes = ["id", "width", "x", "y"]
