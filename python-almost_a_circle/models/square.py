@@ -30,20 +30,17 @@ class Square(Rectangle):
                 if atribute == "width":
                     setattr(self, "height", value)
                 setattr(self, atribute, value)
-
-            # kwargs only below
-            else:
-                for atribute, value in kwargs.items():
-
-                    # size was detected, we use it for width and height
-                    if atribute == "size":
-                        self.validator("width", value)
-                        setattr(self, "width", value)
-                        setattr(self, "height", value)
-                    # continue normally
-                    else:
-                        self.validator(self, atribute, value)
-                        setattr(self, atribute, value)
+        else:
+            for atribute, value in kwargs.items():
+                # size was detected, we use it for width and height
+                if atribute == "size":
+                    self.validator("width", value)
+                    setattr(self, "width", value)
+                    setattr(self, "height", value)
+                # continue normally
+                else:
+                    self.validator(atribute, value)
+                    setattr(self, atribute, value)
 
     @property
     def size(self):
