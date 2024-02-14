@@ -56,6 +56,9 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """creates new instances of cls created"""
-        new_instance = cls(1, 1)
+        if cls.__name__ == "Rectangle":
+            new_instance = cls(1, 1)
+        if cls.__name__ == "Square":
+            new_instance = cls(1)
         new_instance.update(**dictionary)
         return new_instance
