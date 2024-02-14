@@ -54,6 +54,21 @@ class Base:
             f.write(json_string)
 
     @classmethod
+    def load_from_file(cls):
+        file_name = str(cls.__name__) + ".json"
+        try:
+            with open(file_name, 'r') as f:
+                list_of_dict = cls.from_json_string(f.read())
+        except FileNotFoundError:
+            return []
+
+        object_list = []
+        for dictionary in list_of_dict:
+            object = cls.create(**dictionary)
+            object_list.append(object)
+        return object_list
+
+    @classmethod
     def create(cls, **dictionary):
         """creates new instances of cls created"""
         if cls.__name__ == "Rectangle":
