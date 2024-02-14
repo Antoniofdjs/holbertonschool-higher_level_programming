@@ -31,6 +31,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """Save json string into file, list of dictionaries"""
         list_of_dictionaries = []
         if list_objs is None:
             list_objs = []
