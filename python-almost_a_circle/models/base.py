@@ -21,6 +21,12 @@ class Base:
             id = Base.__nb_objects
         self.id = id
 
+    def from_json_string(json_string):
+        """Convert json string into object again (list of dictionaries)"""
+        if not json_string or json_string is None:
+            return []
+        return json.loads(json_string)
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """Turns data into json string"""
@@ -28,12 +34,6 @@ class Base:
             return "[]"
         else:
             return json.dumps(list_dictionaries)
-
-    def from_json_string(json_string):
-        """Convert json string into object again (list of dictionaries)"""
-        if not json_string or json_string is None:
-            return []
-        return json.loads(json_string)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -52,3 +52,10 @@ class Base:
             # convert the list of dict to json and write in file
             json_string = cls.to_json_string(list_of_dict)
             f.write(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """creates new instances of cls created"""
+        new_instance = cls(1, 1)
+        new_instance.update(**dictionary)
+        return new_instance
