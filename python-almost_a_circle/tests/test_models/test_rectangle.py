@@ -35,7 +35,7 @@ class TestRectangle(unittest.TestCase):
     def test_validator_types(self):
         """Validate that types must be int, except id"""
         # Testing creator
-        self.assertRaises(TypeError, Rectangle, "10")
+        self.assertRaises(TypeError, Rectangle, "10", 2)
         self.assertRaises(TypeError, Rectangle, 1, [34])
         self.assertRaises(TypeError, Rectangle, 1, 2, "4")
         self.assertRaises(TypeError, Rectangle, 1, 2, 3, "4")
