@@ -38,6 +38,24 @@ class TestBase(unittest.TestCase):
         with open("Square.json", "r") as f:
             self.assertEqual(f.read(), '[]')
 
+    def test_create_rectangle(self):
+        """Test for using create, Rectangle"""
+        r1 = Rectangle(3, 5, 1, 1)
+        dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**dictionary)
+        self.assertEqual(r1 == r2, False)
+        self.assertEqual(r1 is r2, False)
+        self.assertNotEqual(r1, r2)
+
+    def test_create_square(self):
+        """Test using create, Square"""
+        sqr1 = Square(5)
+        dictionary = sqr1.to_dictionary()
+        sqr2 = Square.create(**dictionary)
+        self.assertEqual(sqr1 == sqr2, False)
+        self.assertEqual(sqr1 is sqr2, False)
+        self.assertNotEqual(sqr1, sqr2)
+
     def test_save_to_file(self):
         """Test case for save_to_file"""
         r1 = Rectangle(10, 7, 2, 8)
