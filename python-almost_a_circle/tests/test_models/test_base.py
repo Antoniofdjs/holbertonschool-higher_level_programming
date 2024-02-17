@@ -5,6 +5,7 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+import os
 
 
 class TestBase(unittest.TestCase):
@@ -88,6 +89,7 @@ class TestBase(unittest.TestCase):
 
         result = Rectangle.load_from_file()
         self.assertEqual(len(result), 2)
+        os.remove("Rectangle.json")
 
     def test_load_from_file_square(self):
         result = Square.load_from_file()
@@ -101,6 +103,7 @@ class TestBase(unittest.TestCase):
 
         result = Square.load_from_file()
         self.assertEqual(len(result), 2)
+        os.remove("Square.json")
 
 
 if __name__ == '__main__':
