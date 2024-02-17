@@ -31,7 +31,9 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(s2.y, 3)
 
     def test_validator_types(self):
-        """Validate that types must be int, except id"""
+        """Validate that types must be int, except id
+            (size, x=0, y=0, id=None)
+        """
         # Testing creator
         self.assertRaises(TypeError, Square, "10", 2)
         self.assertRaises(TypeError, Square, 1, [34])
@@ -46,6 +48,25 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             s1 = Square(1)
             s1.y = "-2"
+
+    def test_validator_values(self):
+        """Validate that size > 0, x and y >= 0
+            (size, x=0, y=0, id=None)
+        """
+        # Testing creator
+        self.assertRaises(ValueError, Square, -3, 2)
+        self.assertRaises(ValueError, Square, 1, -34)
+        self.assertRaises(ValueError, Square, 1, 2, -3)
+        # Testing setters
+        with self.assertRaises(ValueError):
+            s1 = Square(1)
+            s1.size = -2
+        with self.assertRaises(ValueError):
+            s1 = Square(1)
+            s1.x = -2
+        with self.assertRaises(ValueError):
+            s1 = Square(1)
+            s1.y = -2
 
 
 if __name__ == "__main__":
