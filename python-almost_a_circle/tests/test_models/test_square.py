@@ -29,6 +29,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(s2.size, 1)
         self.assertEqual(s2.x, 2)
         self.assertEqual(s2.y, 3)
+        
+        self.assertRaises(ValueError, Square, 0)
 
     def test_validator_types(self):
         """Validate that types must be int, except id
