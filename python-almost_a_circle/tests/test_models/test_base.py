@@ -35,12 +35,11 @@ class TestBase(unittest.TestCase):
         Rectangle.save_to_file([r1, r2])
         with open("Rectangle.json") as f:
             self.assertEqual(f.read(), json_expeceted)
-            self.setUp()
 
-        # Square Test
+        # Square Test, creations above count for ids below
         expected_list_of_dic = [
-            {'id': 1, 'size': 10, 'x': 7, 'y': 2},
-            {'id': 2, 'size': 2, 'x': 0, 'y': 0}
+            {'id': 3, 'size': 10, 'x': 7, 'y': 2},
+            {'id': 4, 'size': 2, 'x': 0, 'y': 0}
             ]
         json_expeceted = Square.to_json_string(expected_list_of_dic)
         s1 = Square(10, 7, 2)
@@ -48,7 +47,6 @@ class TestBase(unittest.TestCase):
         Square.save_to_file([s1, s2])
         with open("Square.json") as f:
             self.assertEqual(f.read(), json_expeceted)
-            self.setUp()
 
 
 if __name__ == '__main__':
