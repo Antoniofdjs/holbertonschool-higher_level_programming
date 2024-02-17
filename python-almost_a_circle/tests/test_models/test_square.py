@@ -5,6 +5,7 @@ import unittest
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+import os
 
 
 class TestRectangle(unittest.TestCase):
@@ -139,6 +140,20 @@ class TestRectangle(unittest.TestCase):
         Square.save_to_file([s1, s2])
         with open("Square.json") as f:
             self.assertEqual(f.read(), json_expected)
+
+    def test_load_from_file(self):
+        result = Square.load_from_file()
+        self.assertEqual(result, [])
+
+        s1 = Square(10, 7, 2, 8)
+        s2 = Square(2, 4)
+        list_rectangles = [s1, s2]
+
+        Square.save_to_file(list_rectangles)
+
+        result = Square.load_from_file()
+        self.assertEqual(len(result), 2)
+
 
 if __name__ == "__main__":
 
