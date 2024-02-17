@@ -133,12 +133,12 @@ class TestRectangle(unittest.TestCase):
             {'id': 1, 'size': 10, 'x': 7, 'y': 2},
             {'id': 2, 'size': 2, 'x': 0, 'y': 0}
             ]
-        json_expeceted = Square.to_json_string(expected_list_of_dic)
+        json_expected = Square.to_json_string(expected_list_of_dic)
         s1 = Square(10, 7, 2)
         s2 = Square(2)
         Square.save_to_file([s1, s2])
         with open("Square.json") as f:
-            self.assertEqual(f.read(), json_expeceted)
+            self.assertEqual(f.read(), json_expected)
 
 if __name__ == "__main__":
 
