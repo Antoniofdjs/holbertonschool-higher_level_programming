@@ -29,7 +29,7 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(s2.size, 1)
         self.assertEqual(s2.x, 2)
         self.assertEqual(s2.y, 3)
-        
+
         self.assertRaises(ValueError, Square, 0)
 
     def test_validator_types(self):
@@ -114,6 +114,19 @@ class TestRectangle(unittest.TestCase):
         s4 = Square(1, 2, 3, 4)
         s4.update(10, 10, 10, 10)
         self.assertEqual(s4.__str__(), "[Square] (10) 10/10 - 10")
+
+    def test_to_dictionary(self):
+        """returns dictionary represetantion of Square"""
+        s1 = Square(10, 2, 1)
+        expected_dictionary = {
+            'id': 1,
+            'size': 10,
+            'x': 2,
+            'y': 1
+            }
+        s1_dictionary = s1.to_dictionary()
+        self.assertEqual(s1_dictionary, expected_dictionary)
+
 
 
 if __name__ == "__main__":
