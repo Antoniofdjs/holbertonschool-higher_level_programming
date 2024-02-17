@@ -62,6 +62,7 @@ class TestRectangle(unittest.TestCase):
         """Validate values (except id), and w,h >0 and x,y >=0"""
         # Testing constructor
         self.assertRaises(ValueError, Rectangle, 0, 2)
+        self.assertRaises(ValueError, Rectangle, 1, 0)
         self.assertRaises(ValueError, Rectangle, 1, -3)
         self.assertRaises(ValueError, Rectangle, 1, 2, -3)
         self.assertRaises(ValueError, Rectangle, 1, 2, 3, -4)
@@ -117,6 +118,20 @@ class TestRectangle(unittest.TestCase):
             }
         r1_dictionary = r1.to_dictionary()
         self.assertEqual(r1_dictionary, expected_dictionary)
+
+    def test_save_to_file(self):
+        """Save json string into file, list of dictionaries"""
+        # Rectangle Test
+        expected_list_of_dic = [
+            {'id': 1, 'width': 10, 'height': 7, 'x': 2, 'y': 8},
+            {'id': 2, 'width': 2, 'height': 4, 'x': 0, 'y': 0}
+            ]
+        json_expeceted = Rectangle.to_json_string(expected_list_of_dic)
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r1, r2])
+        with open("Rectangle.json") as f:
+            self.assertEqual(f.read(), json_expeceted)
 
 
 if __name__ == "__main__":

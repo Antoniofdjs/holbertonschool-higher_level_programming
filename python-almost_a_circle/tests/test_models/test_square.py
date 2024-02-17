@@ -127,6 +127,18 @@ class TestRectangle(unittest.TestCase):
         s1_dictionary = s1.to_dictionary()
         self.assertEqual(s1_dictionary, expected_dictionary)
 
+    def test_save_to_file(self):
+        """Save json string into file, list of dictionaries"""
+        expected_list_of_dic = [
+            {'id': 1, 'size': 10, 'x': 7, 'y': 2},
+            {'id': 2, 'size': 2, 'x': 0, 'y': 0}
+            ]
+        json_expeceted = Square.to_json_string(expected_list_of_dic)
+        s1 = Square(10, 7, 2)
+        s2 = Square(2)
+        Square.save_to_file([s1, s2])
+        with open("Square.json") as f:
+            self.assertEqual(f.read(), json_expeceted)
 
 if __name__ == "__main__":
 
