@@ -105,6 +105,19 @@ class TestRectangle(unittest.TestCase):
         r3.update(id=3, x=4, y=4, width=2, height=3)
         self.assertEqual(r3.__str__(), "[Rectangle] (3) 4/4 - 2/3")
 
+    def test_to_dictionary(self):
+        """returns dictionary represetantion of Rectangle"""
+        r1 = Rectangle(10, 9, 1, 2, 5)
+        expected_dictionary = {
+            'id': 5,
+            'width': 10,
+            'height': 9,
+            'x': 1,
+            'y': 2
+            }
+        r1_dictionary = r1.to_dictionary()
+        self.assertEqual(r1_dictionary, expected_dictionary)
+
 
 if __name__ == "__main__":
 
