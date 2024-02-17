@@ -128,7 +128,6 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(s1_dictionary, expected_dictionary)
 
 
-
 if __name__ == "__main__":
 
     unittest.main()
