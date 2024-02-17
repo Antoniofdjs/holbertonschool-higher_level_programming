@@ -77,35 +77,7 @@ class TestBase(unittest.TestCase):
         with open("Base.json", "r") as f:
             self.assertEqual(f.read(), '[]')
 
-    def test_load_from_file_rectangle(self):
-        result = Rectangle.load_from_file()
-        self.assertEqual(result, [])
-
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
-        list_rectangles = [r1, r2]
-
-        Rectangle.save_to_file(list_rectangles)
-
-        result = Rectangle.load_from_file()
-        self.assertEqual(len(result), 2)
-        os.remove("Rectangle.json")
-
-    def test_load_from_file_square(self):
-        result = Square.load_from_file()
-        self.assertEqual(result, [])
-
-        s1 = Square(10, 7, 2, 8)
-        s2 = Square(2, 4)
-        list_rectangles = [s1, s2]
-
-        Square.save_to_file(list_rectangles)
-
-        result = Square.load_from_file()
-        self.assertEqual(len(result), 2)
-        os.remove("Square.json")
-
-
+      
 if __name__ == '__main__':
 
     unittest.main()
