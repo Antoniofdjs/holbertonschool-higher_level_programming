@@ -28,7 +28,7 @@ if __name__ == '__main__':
     cursor.execute(query, (argv[4],))  # Prevent sql injection
 
     rows = cursor.fetchall()
-    print(', '.join([row[0] for row in rows]))
+    print(', '.join([row[0] for row in rows]))  # Joins all cities by ', '
 
     cursor.close()
     db.close()
