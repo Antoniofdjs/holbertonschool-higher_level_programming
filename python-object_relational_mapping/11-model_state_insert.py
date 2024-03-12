@@ -14,7 +14,6 @@ if __name__ == '__main__':
     username = argv[1]
     passwd = argv[2]
     db = argv[3]
-    state_name = argv[4]
 
     # Make connection
     engine = create_engine(
@@ -25,9 +24,12 @@ if __name__ == '__main__':
     session = sessionmaker(bind=engine)
     session = session()
 
-    new_state = State(name=state_name)
+    new_state = State(name='Louisiana')
 
     session.add(new_state)
     session.commit()  # Commit the transaction
+
+    states = session.query(State).filter(State.name == "Louisiana").all()
+    [print(f"{state.id}") for state in states]
 
     session.close()
