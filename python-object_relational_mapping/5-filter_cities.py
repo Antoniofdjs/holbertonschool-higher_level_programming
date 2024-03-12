@@ -20,7 +20,7 @@ if __name__ == '__main__':
         )
 
     cursor = db.cursor()
-    query = "SELECT cities.name FROM cities\
+    query = "SELECT cities.id, cities.name FROM cities\
         INNER JOIN states ON cities.state_id = states.id\
         WHERE BINARY states.name LIKE %s\
         ORDER BY cities.id ASC"
@@ -32,9 +32,9 @@ if __name__ == '__main__':
     for row in rows:
         total_cities -= 1
         if total_cities != 0:
-            print("{}".format(row[0]), end=", ")
+            print("{}".format(row[1]), end=", ")
         else:
-            print("{}".format(row[0]))
+            print("{}".format(row[1]))
 
     cursor.close()
     db.close()
